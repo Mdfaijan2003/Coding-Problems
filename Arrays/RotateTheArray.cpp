@@ -25,8 +25,42 @@ void rotate(vector<int> &nums, int k)
   reverse(nums.begin() + k, nums.end());
   reverse(nums.begin(), nums.end());
 }
+
+void rotateUsingTemp(vector<int> &nums, int k)
+{
+  int n = nums.size();
+  vector<int> temp(n);
+  int ind = n - k;
+  int newInd = 0;
+  for (int i = ind; i < n; i++)
+  {
+    temp[newInd++] = nums[i];
+  }
+
+  for (int i = 0; i < ind; i++)
+  {
+    temp[newInd++] = nums[i];
+  }
+
+  nums = temp;
+}
 int main()
 {
+  cout << "Enter the size of an array: \n";
+  int n;
+  cin >> n;
+  vector<int> nums(n);
+  cout << "Enter the elements in the array: \n";
+  for (int i = 0; i < n; i++)
+  {
+    cin >> nums[i];
+  }
+  rotateUsingTemp(nums, 3);
+  cout << "Array after rotation: ";
+  for (int i = 0; i < n; i++)
+  {
+    cout << nums[i] << " ";
+  }
 
   return 0;
 }
