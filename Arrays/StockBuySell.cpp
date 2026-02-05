@@ -29,7 +29,7 @@ int maxProfitBrute(vector<int> &prices)
   }
   return profit;
 }
-// Keep track of minimum and calculate the profit for each day 
+// Keep track of minimum and calculate the profit for each day -- O(n)
 int maxProfit(vector<int> &prices)
 {
   int n = prices.size();
