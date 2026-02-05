@@ -37,6 +37,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 It does not matter what you leave beyond the returned k (hence they are underscores).*/
 #include<bits/stdc++.h>
 using namespace std;
+// Move and place.
 int removeDuplicate(int arr[], int n){
   if(n == 0) return 0;
   int i=0;

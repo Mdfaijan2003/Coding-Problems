@@ -32,6 +32,24 @@ vector<int> twoSum(vector<int> &nums, int target)
 
   return {};
 }
+// Optimized Approach using hash map where we store the values and their indices.
+vector<int> twoSum(vector<int> &nums, int target)
+{
+
+  int n = nums.size();
+  unordered_map<int, int> mp;
+  for (int i = 0; i < n-1; i++)
+  {
+    int complement = target - nums[i];
+    if (mp.find(complement) != mp.end())
+    {
+      return {mp[complement], i};
+    }
+    mp[nums[i]] = i;
+  }
+
+  return {};
+}
 
 int main()
 {

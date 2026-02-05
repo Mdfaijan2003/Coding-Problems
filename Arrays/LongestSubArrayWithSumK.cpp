@@ -35,6 +35,7 @@ int longestSubarrayBrute(vector<int> &nums, int k)
   return maxLength;
 }
 // 2. Using two pointers - O(n)
+// Sum, check & move
 int longestSubarray(vector<int> &nums, int k)
 {
   int n = nums.size();
@@ -59,7 +60,7 @@ int longestSubarray(vector<int> &nums, int k)
   return maxLength;
 }
 
-// If the Array has negative integer then we have to think differently.Now, we use hashmap to store the prefix sums at every index. if prefixSum - k is present in the map then we can update the maxLength.
+// If the Array has negative integer then we have to think differently. Now, we use hashmap to store the prefix sums at every index. if prefixSum - k is present in the map then we can update the maxLength.
 
 int longestSubarrayWithNegatives(vector<int> &nums, int k)
 {
