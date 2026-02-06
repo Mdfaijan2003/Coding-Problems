@@ -59,6 +59,8 @@ vector<int> constructTransformedArrayBrute(vector<int> &nums)
   }
   return result;
 }
+
+// Optimal Approach
 vector<int> constructTransformedArray(vector<int> &nums)
 {
   int n = nums.size();
