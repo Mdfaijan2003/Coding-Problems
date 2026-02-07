@@ -1,9 +1,5 @@
 /*Leetcode: 3379. Transformed Array
-Easy
-Topics
-premium lock icon
-Companies
-Hint
+
 You are given an integer array nums that represents a circular array. Your task is to create a new array result of the same size, following these rules:
 
 For each index i (where 0 <= i < nums.length), perform the following independent actions:
@@ -31,6 +27,7 @@ For nums[3] that is equal to 1, If we move 1 step to right, we reach nums[0]. So
 
 #include <bits/stdc++.h>
 using namespace std;
+// This was my intuitive approach
 vector<int> constructTransformedArrayBrute(vector<int> &nums)
 {
   int n = nums.size();
@@ -60,7 +57,7 @@ vector<int> constructTransformedArrayBrute(vector<int> &nums)
   return result;
 }
 
-// Optimal Approach
+// Optimal Approach  --> cal the number of moves and then decide the direction to move
 vector<int> constructTransformedArray(vector<int> &nums)
 {
   int n = nums.size();
