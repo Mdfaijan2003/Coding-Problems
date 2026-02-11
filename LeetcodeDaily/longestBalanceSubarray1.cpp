@@ -10,6 +10,8 @@ Return the length of the longest balanced subarray.
 
 #include <bits/stdc++.h>
 using namespace std;
+
+// Check all the possible array then apply the condition for the required answer.
 int longestBalanced(vector<int> &nums)
 {
   int n = nums.size();
