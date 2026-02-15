@@ -10,6 +10,7 @@ Delete the characters at 0-indexed positions 2 and 6 ("aababbab" -> "aaabbb"), o
 Delete the characters at 0-indexed positions 3 and 6 ("aababbab" -> "aabbbb").
 */
 
+
 #include <bits/stdc++.h>
 using namespace std;
 // Divide the array into 2 halfs check left for b and delete then check right for a and delete it. -- O(N^2)
@@ -41,16 +42,24 @@ int minimumDeletion(string s)
   return ans;
 }
 
-//optimal approach --> using bcount(how many b's appears before) and deletions(what's the min deletion possible)
-int minimumDeletions(string s){
+// optimal approach --> using bcount(how many b's appears before) and deletions(what's the min deletion possible)
+/*Explanation:
+Keep track of how many 'b's have appeared so far.
+When an 'a' appears after 'b', compare the cost of deleting this 'a' with deleting all previous 'b's, and delete whichever is smaller.*/
+
+int minimumDeletions(string s)
+{
   int bCount = 0;
-  int n =s.length();
+  int n = s.length();
   int deletions = 0;
-  for(char c : s){
-    if(c == 'b'){
+  for (char c : s)
+  {
+    if (c == 'b')
+    {
       bCount++;
     }
-    else{
+    else
+    {
       deletions = min(deletions + 1, bCount);
     }
   }
@@ -59,7 +68,7 @@ int minimumDeletions(string s){
 
 int main()
 {
-  string s = "bbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaabababababbbbbbbabababbbbbaaaaaaaababababa"; //expected ans = 32
+  string s = "bbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaabababababbbbbbbabababbbbbaaaaaaaababababa"; // expected ans = 32
   cout << minimumDeletion(s);
 
   return 0;

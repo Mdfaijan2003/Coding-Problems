@@ -72,7 +72,7 @@ int minRemovalFirstIntuition(vector<int> &nums, int k)
   count = dfs(0, n - 1, k, count, nums);
   return count;
 }
-// Sliding window Approach
+// Sliding window Approach -->Sort for the min and max element at respective ends then think what to keep.
 int minRemoval(vector<int> &nums, int k)
 {
   int n = nums.size();
