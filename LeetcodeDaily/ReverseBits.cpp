@@ -14,6 +14,7 @@ Integer	    Binary
 
 #include <bits/stdc++.h>
 using namespace std;
+// Simple Idea: get the last digit put in into the first digit.
 int reverseBits(int n)
 {
   int result = 0;
