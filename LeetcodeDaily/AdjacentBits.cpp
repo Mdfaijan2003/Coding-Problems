@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Brute Force --> Check last bit.
 bool helper_function(int n, int last){
   int secLast = n & 1;
   if(secLast == last) return false;
