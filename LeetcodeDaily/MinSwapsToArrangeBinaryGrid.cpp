@@ -8,7 +8,7 @@ Return the minimum number of steps needed to make the grid valid, or -1 if the g
 
 The main diagonal of a grid is the diagonal that starts at cell (1, 1) and ends at cell (n, n).
 
- 
+
 
 Example 1:
 
@@ -16,46 +16,53 @@ Example 1:
 Input: grid = [[0,0,1],[1,1,0],[1,0,0]]
 Output: 3
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 // Approach: Store the number of trailing zeros in each row and then check if any other row has more than or equal number if trailing zeros if yes then swap the rows and count the number of swaps. If no row has more than or equal number of trailing zeros then return -1.
-int minSwaps(vector<vector<int>>& grid)
+int minSwaps(vector<vector<int>> &grid)
 {
   int n = grid.size();
   vector<int> extraZeros(n, 0);
 
-  for(int i=0; i<n; i++){
+  for (int i = 0; i < n; i++)
+  {
     int count = 0;
-    for(int j=n-1; j>=0; j--){
-      if(grid[i][j] == 0) count++;
-      else break;
+    for (int j = n - 1; j >= 0; j--)
+    {
+      if (grid[i][j] == 0)
+        count++;
+      else
+        break;
     }
     extraZeros[i] = count;
   }
 
   int swaps = 0;
 
-  for(int i=0; i<n; i++){
-    int requiresZeros = n- i - 1;
-    if(extraZeros[i] >= requiresZeros) continue;
+  for (int i = 0; i < n; i++)
+  {
+    int requiresZeros = n - i - 1;
+    if (extraZeros[i] >= requiresZeros)
+      continue;
 
     int j = i;
-    while(j < n && extraZeros[j] < requiresZeros) j++;
+    while (j < n && extraZeros[j] < requiresZeros)
+      j++;
 
-    if( j == n) return -1;
-     swaps = swaps + (j - i);
+    if (j == n)
+      return -1;
+    swaps = swaps + (j - i);
 
-    while(i < j){
-      swap(extraZeros[j], extraZeros[j-1]);
+    while (i < j)
+    {
+      swap(extraZeros[j], extraZeros[j - 1]);
       j--;
     }
-
   }
   return swaps;
 }
-int main(){
+int main()
+{
 
-  
-  
   return 0;
 }
