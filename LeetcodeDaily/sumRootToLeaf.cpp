@@ -28,7 +28,9 @@ struct TreeNode
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
   TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
-
+// Time complexity: O(n) where n is the number of nodes in the tree
+// Space complexity: O(h) where h is the height of the tree
+// Intuition: We can use a depth-first search (DFS) approach to traverse the tree and calculate the sum of the root-to-leaf binary numbers. We can keep track of the current binary number as we traverse down the tree, and when we reach a leaf node, we can add the current binary number to our total sum. We can use bitwise operations to efficiently calculate the current binary number as we traverse down the tree.
 int dfs(TreeNode *node, int curr)
 {
   if (node == nullptr)

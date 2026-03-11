@@ -1,10 +1,6 @@
 /*
 761. Special Binary String
-Hard
-Topics
-premium lock icon
-Companies
-Hint
+
 Special binary strings are binary strings with the following two properties:
 
 The number of 0's is equal to the number of 1's.
@@ -21,13 +17,43 @@ Example 1:
 
 Input: s = "11011000"
 Output: "11100100"
-Explanation: The strings "10" [occuring at s[1]] and "1100" [at s[3]] are swapped.
+Explanation: The strings "10" [occurring at s[1]] and "1100" [at s[3]] are swapped.
 This is the lexicographically largest string possible after some number of swaps.
 */
 
 #include <bits/stdc++.h>
 using namespace std;
+string Special(string &s)
+{
+  vector<string> res;
+  int sum = 0;
+  int start = 0;
+  for (int i = 0; i < s.length(); i++)
+  {
+    sum += s[i] == '1' ? 1 : -1;
 
+    if (sum == 0)
+    {
+      string inner = s.substr(start + 1, i - start - 1);
+      res.push_back("1" + Special(inner) + "0");
+      start = i + 1;
+    }
+  }
+
+  sort(res.begin(), res.end(), greater<string>()); // descending order
+
+  string ans = "";
+  for (auto &it : res)
+  {
+    ans += it;
+  }
+
+  return ans;
+}
+string makeLargestSpecialBrute(string s)
+{
+  return Special(s);
+}
 string makeLargestSpecial(string s)
 {
 
