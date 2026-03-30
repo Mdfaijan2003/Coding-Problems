@@ -73,9 +73,9 @@ vector<vector<int>> minAbsDiff(vector<vector<int>> &grid, int k)
     {
 
       unordered_set<int> workingGrid;
-      for (int a = i; a < i + k; a++)
+      for (int a = i; a < i + k - 1; a++)
       {
-        for (int b = j; b < j + k; b++)
+        for (int b = j; b < j + k - 1; b++)
         {
           workingGrid.insert(grid[a][b]);
         }
@@ -100,11 +100,8 @@ vector<vector<int>> minAbsDiff(vector<vector<int>> &grid, int k)
 int main()
 {
 
-  vector<vector<int>> grid= {{1,8},{3,-2}};
+  vector<vector<int>> grid = {{1, 8}, {3, -2}};
   vector<vector<int>> ans = minAbsDiff(grid, 2);
-  for(auto it : ans){
-    cout<<it<<" ";
-  }
 
   return 0;
 }

@@ -1,3 +1,19 @@
+/*3546. Equal Sum Grid Partition I
+
+You are given an m x n matrix grid of positive integers. Your task is to determine if it is possible to make either one horizontal or one vertical cut on the grid such that:
+
+Each of the two resulting sections formed by the cut is non-empty.
+The sum of the elements in both sections is equal.
+Return true if such a partition exists; otherwise return false.
+
+
+
+Example 1:
+
+Input: grid = [[1,4],[2,3]]
+
+Output: true*/
+
 #include <bits/stdc++.h>
 using namespace std;
 // Intuition --> keep track of prefix rows , prefix cols and suffix rows and suffix cols
@@ -80,9 +96,8 @@ bool canPartitionGridOpt(vector<vector<int>> &grid)
   int n = grid.size();
   int m = grid[0].size();
 
-  vector<int> pre_rows(n, 0);
-  vector<int> pre_cols(n, 0);
-  
+  vector<long long> pre_rows(n, 0);
+  vector<long long> pre_cols(n, 0);
 
   // Prefix cal
   unsigned long long sum = 0;
@@ -105,9 +120,8 @@ bool canPartitionGridOpt(vector<vector<int>> &grid)
     pre_cols[i] = sum;
   }
 
+  long long total = pre_rows[n - 1];
 
-  long long total = pre_rows[n -  1];
-  
   // checks for horizontal
 
   for (int i = 0; i < n - 1; i++)
@@ -130,13 +144,12 @@ bool canPartitionGridOpt(vector<vector<int>> &grid)
 }
 int main()
 {
-    vector<vector<int>> grid = {
-        {1, 2, 3},
-        {3, 2, 1},
-        {0, 0, 0}
-    };
+  vector<vector<int>> grid = {
+      {1, 2, 3},
+      {3, 2, 1},
+      {0, 0, 0}};
 
-    cout << (canPartitionGridOpt(grid) ? "YES\n" : "NO\n");
+  cout << (canPartitionGridOpt(grid) ? "YES\n" : "NO\n");
 
-    return 0;
+  return 0;
 }

@@ -1,9 +1,5 @@
 /*2946. Matrix Similarity After Cyclic Shifts
-Easy
-Topics
-premium lock icon
-Companies
-Hint
+
 You are given an m x n integer matrix mat and an integer k. The matrix rows are 0-indexed.
 
 The following proccess happens k times:
@@ -64,60 +60,83 @@ using namespace std;
 class Solution
 {
 public:
-  /* 0 -> m - 1
-     1 -> 2
-     2 -> 1
-     3 -> 4
-     4 -> 3*/
   vector<int> leftShift(vector<int> &row, int k)
   {
     int n = row.size();
-    vector<int> temp(n, 0);
+    vector<int> temp(n);
 
     for (int i = 0; i < n; i++)
     {
-      int ind = (i - k + n) & n;
+      int ind = (i - k + n) % n;
       temp[ind] = row[i];
     }
 
     return temp;
   }
+
   vector<int> rightShift(vector<int> &row, int k)
   {
     int n = row.size();
-    vector<int> temp(n, 0);
+    vector<int> temp(n);
 
     for (int i = 0; i < n; i++)
     {
-      int ind = (i - k + n) & n;
+      int ind = (i + k) % n;
       temp[ind] = row[i];
     }
 
     return temp;
   }
+
   bool areSimilar(vector<vector<int>> &mat, int k)
   {
     int n = mat.size();
     int m = mat[0].size();
+
+    k = k % m;
+
     vector<vector<int>> similarMat = mat;
 
     for (int i = 0; i < n; i++)
     {
-
-      similarMat[i] = (i % 2 == 0) ? leftShift[mat[i], k] : rightShift[mat[i], k];
+      if (i % 2 == 0)
+        similarMat[i] = leftShift(mat[i], k);
+      else
+        similarMat[i] = rightShift(mat[i], k);
     }
-    if (similarMat == mat)
-      return true;
-    return false;
+
+    return similarMat == mat;
   }
 };
+
+// Optimal approach
+bool areSimilar(vector<vector<int>> &mat, int k)
+{
+  int n = mat.size();
+  int m = mat[0].size();
+
+  k = k % m;
+
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m; j++)
+    {
+      if (i % 2 == 0) // even --> left shift
+      {
+        if (mat[i][j] != mat[i][(j + k) % m])
+          return false;
+      }
+      else // odd --> right shift
+      {
+        if (mat[i][j] != mat[i][(j - k + m) % m])
+          return false;
+      }
+    }
+  }
+  return true;
+}
 int main()
 {
-
-  int n = 4;
-
-  cout << (2 - 1 + n) % n << endl;
-  cout << (1 + 1) % n;
 
   return 0;
 }
