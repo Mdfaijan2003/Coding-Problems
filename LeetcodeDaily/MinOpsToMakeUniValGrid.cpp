@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
 
 /*2033. Minimum Operations to Make a Uni-Value Grid
 
@@ -22,16 +20,16 @@ Explanation: We can make every element equal to 4 by doing the following:
 A total of 4 operations were used.
 Example 2:
 
-
 Input: grid = [[1,5],[2,3]], x = 1
 Output: 5
 Explanation: We can make every element equal to 3.
 Example 3:
 
-
 Input: grid = [[1,2],[3,4]], x = 2
 Output: -1
 Explanation: It is impossible to make every element equal.*/
+#include <bits/stdc++.h>
+using namespace std;
 
 int minOperations(vector<vector<int>> &grid, int x)
 {
