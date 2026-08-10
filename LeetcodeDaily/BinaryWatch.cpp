@@ -11,7 +11,7 @@ For example, "01:00" is not valid. It should be "1:00".
 The minute must consist of two digits and may contain a leading zero.
 
 For example, "10:2" is not valid. It should be "10:02".
- 
+
 
 Example 1:
 
@@ -19,6 +19,7 @@ Input: turnedOn = 1
 Output: ["0:01","0:02","0:04","0:08","0:16","0:32","1:00","2:00","4:00","8:00"]
 */
 
+// more optimal approach might be there
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,9 +28,12 @@ vector<string> readBinaryWatch(int turnedOn)
 {
   vector<string> result;
 
-  for(int h=0; h<12; h++){
-    for(int m = 0; m < 60; m++){
-      if(__builtin_popcount(h) + __builtin_popcount(m) == turnedOn){
+  for (int h = 0; h < 12; h++)
+  {
+    for (int m = 0; m < 60; m++)
+    {
+      if (__builtin_popcount(h) + __builtin_popcount(m) == turnedOn)
+      {
         string hour = to_string(h);
         string min = (m < 10 ? "0" : "") + to_string(m);
 

@@ -20,6 +20,8 @@ Output: 0.00000
 Explanation: We poured 1 cup of champange to the top glass of the tower (which is indexed as (0, 0)). There will be no excess liquid so all the glasses under the top glass will remain empty.*/
 
 // Using Recursion and Memoization.
+/*Explanation --> champagne(i, j) = champagne(i - 1, j - 1) + champagne(i - 1, j)
+ */
 #include <bits/stdc++.h>
 using namespace std;
 double t[101][101];

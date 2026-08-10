@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+// Need to understand the questions
 string addBinary(string a, string b)
 {
   int i = a.size() - 1, j = b.size() - 1, carry = 0;

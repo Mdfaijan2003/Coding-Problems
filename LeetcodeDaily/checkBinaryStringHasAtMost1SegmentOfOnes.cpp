@@ -41,7 +41,7 @@ bool checkOnesSegment(string s)
 }
 int main()
 {
-  string s = "1001";
+  string s = "1";
   cout << checkOnesSegment(s) << endl;
 
   return 0;

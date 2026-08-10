@@ -20,19 +20,23 @@ The second adjacent pair of 1's is "10110" with a distance of 1.
 The answer is the largest of these two distances, which is 2.
 Note that "10110" is not a valid pair since there is a 1 separating the two 1's underlined.*/
 
+// unable to undestand the code
 #include <bits/stdc++.h>
 using namespace std;
 int binaryGap(int n)
 {
-  if(n==0) return 0;
+  if (n == 0)
+    return 0;
   int k = n;
   int prev = -1;
   int maxGap = 0;
 
-  while(k){
+  while (k)
+  {
     int bit = k & -k;
     int index = __builtin_ctz(bit);
-    if(prev != -1){
+    if (prev != -1)
+    {
       maxGap = max(maxGap, index - prev);
     }
     prev = index;

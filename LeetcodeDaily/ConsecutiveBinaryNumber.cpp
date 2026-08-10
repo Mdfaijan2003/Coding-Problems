@@ -70,6 +70,6 @@ int concatenatedBinary(int n)
 }
 int main()
 {
-  cout << concatenatedBinary(42) << endl;
+  cout << concatenatedBinary(5) << endl;
   return 0;
 }

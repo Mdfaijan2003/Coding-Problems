@@ -33,7 +33,7 @@ grid[i][j] is either 'X', 'Y', or '.'.*/
 #include <bits/stdc++.h>
 using namespace std;
 
-int numberOfSubmatrices(vector<vector<char>> &grid)
+int numberOfSubmatricesBrute(vector<vector<char>> &grid)
 {
   int n = grid.size();
   int m = grid[0].size();
@@ -130,9 +130,11 @@ int main()
 {
   vector<vector<char>> grid = {
       {'X', 'Y', '.'},
-      {'Y', '.', '.'}};
+      {'X', 'Y', '.'},
+      {'X', 'X', '.'},
+      {'Y', 'Y', '.'}};
 
-  cout << numberOfSubmatrices(grid) << endl; // Output: 3
+  cout << numberOfSubmatricesBrute(grid) << endl; // Output: 3
 
   return 0;
 }

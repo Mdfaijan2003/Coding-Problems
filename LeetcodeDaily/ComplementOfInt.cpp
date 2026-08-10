@@ -6,6 +6,7 @@ For example, The integer 5 is "101" in binary and its complement is "010" which 
 Given an integer n, return its complement.
 
 
+// Need to revisit again
 
 Example 1:
 
@@ -17,10 +18,12 @@ Explanation: 5 is "101" in binary, with complement "010" in binary, which is 2 i
 using namespace std;
 
 // Intuition --> XOR the number with its mask(mask ==  all 1s equal to the total number of bits of the number)
-int bitwiseComplement(int n){
+int bitwiseComplement(int n)
+{
   int mask = 0;
   int temp = n;
-  while(temp){
+  while (temp)
+  {
     mask = (mask << 1) | 1;
     temp >>= 1;
   }
@@ -41,7 +44,7 @@ int bitwiseComplementBrute(int n)
 }
 int main()
 {
-  cout<<bitwiseComplement(5);
+  cout << bitwiseComplement(5);
 
   return 0;
 }

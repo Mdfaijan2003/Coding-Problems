@@ -19,11 +19,11 @@ using namespace std;
 // Approach --> Track the consecutive counts of 0s and 1s encountered so far. For each new segment, compare the current count with the previous one; the result is determined by the smaller value.
 int countBinarySubstrings(string s)
 {
-  int n = s.size();
+  size_t n = s.length();
   int prev = 0;
   int curr = 1;
   int result = 0;
-  for (int i = 1; i < n; i++)
+  for (size_t i = 1; i < n; i++)
   {
     if (s[i] == s[i - 1])
     {
@@ -41,8 +41,8 @@ int countBinarySubstrings(string s)
 }
 int main()
 {
-  string s ="00110011";
-  cout<<countBinarySubstrings(s);
+  string s = "10100110";
+  cout << countBinarySubstrings(s);
 
   return 0;
 }
