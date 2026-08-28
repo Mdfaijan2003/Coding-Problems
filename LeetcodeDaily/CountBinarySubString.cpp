@@ -5,6 +5,7 @@ Given a binary string s, return the number of non-empty substrings that have the
 Substrings that occur multiple times are counted the number of times they occur.
 
 
+// Pattern Recognition -- Revise it again.
 
 Example 1:
 
